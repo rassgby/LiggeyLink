@@ -134,7 +134,7 @@ export default function Inscription() {
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  function toggleMobileMenu(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
+  function toggleMobileMenu(): void {
     setMobileMenuOpen(!mobileMenuOpen);
   }
   return (
@@ -181,7 +181,7 @@ export default function Inscription() {
 
               <ul className="flex space-x-4 md:space-x-8">
                 <li><Link href="/" className={`font-medium ${darkMode ? 'text-white hover:text-blue-400' : 'text-gray-800 hover:text-blue-600'}`}>Accueil</Link></li>
-                <li><Link href="/emplois" className={`font-medium ${darkMode ? 'text-white hover:text-blue-400' : 'text-gray-800 hover:text-blue-600'}`}>Offres d'emploi</Link></li>
+                <li><Link href="/emplois" className={`font-medium ${darkMode ? 'text-white hover:text-blue-400' : 'text-gray-800 hover:text-blue-600'}`}>Offres emploi</Link></li>
               </ul>
 
             </nav>
@@ -209,7 +209,7 @@ export default function Inscription() {
 
             <ul className="flex flex-col space-y-2">
               <li><Link href="/" className={`block py-2 font-medium ${darkMode ? 'text-white hover:text-blue-400' : 'text-gray-800 hover:text-blue-600'}`}>Accueil</Link></li>
-              <li><Link href="/emplois" className={`block py-2 font-medium ${darkMode ? 'text-white hover:text-blue-400' : 'text-gray-800 hover:text-blue-600'}`}>Offres d'emploi</Link></li>
+              <li><Link href="/emplois" className={`block py-2 font-medium ${darkMode ? 'text-white hover:text-blue-400' : 'text-gray-800 hover:text-blue-600'}`}>Offres emploi</Link></li>
             </ul>
             <div className="mt-4 flex flex-col space-y-2">
               <Link href="/connexion" className={`px-4 py-2 text-center rounded-md ${darkMode ? 'bg-blue-600 hover:bg-blue-500' : 'bg-blue-600 hover:bg-blue-700'} text-white font-medium`}>

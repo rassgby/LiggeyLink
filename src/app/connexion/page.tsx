@@ -68,7 +68,7 @@ export default function Connexion() {
 
         <ul className="flex space-x-4 md:space-x-8">
           <li><Link href="/" className={`font-medium ${darkMode ? 'text-white hover:text-blue-400' : 'text-gray-800 hover:text-blue-600'}`}>Accueil</Link></li>
-          <li><Link href="/emplois" className={`font-medium ${darkMode ? 'text-white hover:text-blue-400' : 'text-gray-800 hover:text-blue-600'}`}>Offres d'emploi</Link></li>
+          <li><Link href="/emplois" className={`font-medium ${darkMode ? 'text-white hover:text-blue-400' : 'text-gray-800 hover:text-blue-600'}`}>Offres emploi</Link></li>
           {/* <li><Link href="/entreprises" className={`font-medium ${darkMode ? 'text-white hover:text-blue-400' : 'text-gray-800 hover:text-blue-600'}`}>Entreprises</Link></li>
           <li><Link href="/conseils" className={`font-medium ${darkMode ? 'text-white hover:text-blue-400' : 'text-gray-800 hover:text-blue-600'}`}>Conseils carrière</Link></li> */}
         </ul>
@@ -100,7 +100,7 @@ export default function Connexion() {
   
       <ul className="flex flex-col space-y-2">
         <li><Link href="/" className={`block py-2 font-medium ${darkMode ? 'text-white hover:text-blue-400' : 'text-gray-800 hover:text-blue-600'}`}>Accueil</Link></li>
-        <li><Link href="/emplois" className={`block py-2 font-medium ${darkMode ? 'text-white hover:text-blue-400' : 'text-gray-800 hover:text-blue-600'}`}>Offres d'emploi</Link></li>
+        <li><Link href="/emplois" className={`block py-2 font-medium ${darkMode ? 'text-white hover:text-blue-400' : 'text-gray-800 hover:text-blue-600'}`}>Offres emploi</Link></li>
         {/* <li><Link href="/entreprises" className={`block py-2 font-medium ${darkMode ? 'text-white hover:text-blue-400' : 'text-gray-800 hover:text-blue-600'}`}>Entreprises</Link></li>
         <li><Link href="/conseils" className={`block py-2 font-medium ${darkMode ? 'text-white hover:text-blue-400' : 'text-gray-800 hover:text-blue-600'}`}>Conseils carrière</Link></li> */}
       </ul>
