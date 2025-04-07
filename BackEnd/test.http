@@ -1,0 +1,287 @@
+
+### Étape 1 - Inscription de l'utilisateur Rassoul
+POST http://localhost:5000/api/users/candidats/register-step1
+Content-Type: application/json
+
+{
+  "firstName": "Seydina Rassoul",
+  "lastName": "Goudiaby",
+  "email": "seydina.gby@gmail.com",
+  "password": "Passer@1234",
+  "confirmPassword": "Passer@1234"
+}
+
+### Étape 2 - Compléter les information supplémentaire de Rassoul
+POST http://localhost:5000/api/users/candidats/register-step2
+Content-Type: application/json
+
+{
+  "userId": "67f2f19930cd34b78e0d8b9d",
+  "domain": "Informatique",
+  "level": "Master",
+  "profile": "Développeur Frontend",
+  "experience": 3
+}
+
+### Connexion de l'utilisateur Rassoul
+POST http://localhost:5000/api/users/candidats/login
+Content-Type: application/json
+
+{
+  "email": "seydina.gby@gmail.com",
+  "password": "Passer@1234"
+}
+
+### Étape 1 - Inscription de l'utilisateur Ousmane
+POST http://localhost:5000/api/users/candidats/register-step1
+Content-Type: application/json
+
+{
+  "firstName": "Ousmane Drame",
+  "lastName": "Fall",
+  "email": "ousmane.drame@gmail.com",
+  "password": "Passer@1234",
+  "confirmPassword": "Passer@1234"
+}
+
+### Étape 2 - Compléter les information supplémentaire de Ousmane
+POST http://localhost:5000/api/users/candidats/register-step2
+Content-Type: application/json
+
+{
+  "userId": "67f311879251a65beaa9f47d",
+  "domain": "Informatique",
+  "level": "Master",
+  "profile": "Développeur Frontend",
+  "experience": 3
+}
+
+### Connexion de l'utilisateur Ousmane
+POST http://localhost:5000/api/users/candidats/login
+Content-Type: application/json
+
+{
+  "email": "ousmane.drame@gmail.com",
+  "password": "Passer@1234"
+}
+
+
+### Étape 1 - Inscription de l'utilisateur Korka
+POST http://localhost:5000/api/users/candidats/register-step1
+Content-Type: application/json
+
+{
+  "firstName": "Amadou Korka",
+  "lastName": "DIALLO",
+  "email": "diallo30amadoukorka@gmail.com",
+  "password": "Passer@1234",
+  "confirmPassword": "Passer@1234"
+}
+
+### Étape 2 - Compléter les information supplémentaire de korka
+POST http://localhost:5000/api/users/candidats/register-step2
+Content-Type: application/json
+
+{
+  "userId": "67f311a69251a65beaa9f482",
+  "domain": "Informatique",
+  "level": "Master",
+  "profile": "Développeur Backend",
+  "experience": 3
+}
+
+### Connexion de l'utilisateur korka
+POST http://localhost:5000/api/users/candidats/login
+Content-Type: application/json
+
+{
+  "email": "diallo30amadoukorka@gmail.com",
+  "password": "Passer@1234"
+}
+
+
+### Création du compte recruteur
+POST http://localhost:5000/api/users/recruteurs/register
+Content-Type: application/json
+
+{
+  "name": "Jean Dupont",
+  "email": "jean.dupont@example.com",
+  "password": "Passer@1234",
+  "confirmPassword": "Passer@1234"
+}
+
+
+### Connexion du recruteur
+POST http://localhost:5000/api/users/recruteurs/login
+Content-Type: application/json
+
+{
+  "email": "jean.dupont@example.com",
+  "password": "Passer@1234"
+}
+
+
+### Changement du mot de passe du compte recruteur
+POST http://localhost:5000/api/users/recruteurs/reset-password
+Content-Type: application/json
+
+{
+  "email": "jean.dupont@example.com",
+  "newPassword": "Passer@123",
+  "confirmNewPassword": "Passer@123"
+}
+
+
+### Test de création de poste sans authentification (échec attendu)
+
+POST http://localhost:5000/api/jobs/add
+Content-Type: application/json
+
+{
+  "title": "Développeur Backend",
+  "profile": "Expérience en Node.js",
+  "description": "Développement et maintenance d'API",
+  "location": "Paris",
+  "contractType": "CDI",
+  "experienceLevel": "3ans",
+  "salary": 50000,
+  "workDuration": "3mois"
+}
+
+### Test de création de poste avec authentification (succès attendu)
+
+### Etap 1
+POST http://localhost:5000/api/users/recruteurs/login
+Content-Type: application/json
+
+{
+  "email": "jean.dupont@example.com",
+  "password": "Passer@1234"
+}
+
+### Etape 2
+POST http://localhost:5000/api/jobs/add
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZWNydXRldXJJZCI6IjY3ZjMxMWQ5OTI1MWE2NWJlYWE5ZjQ4NyIsImlhdCI6MTc0Mzk4MzExNCwiZXhwIjoxNzQzOTg2NzE0fQ.Yu6m_3dBNtQKnoxiHLHTZ0ql4jvmHVKEitYCi7C94DI
+
+
+{
+  "title": "Développeur Backend",
+  "profile": "Expérience en Node.js",
+  "description": "Développement et maintenance d'API",
+  "location": "Paris",
+  "contractType": "CDI",
+  "experienceLevel": "3 ans",
+  "salary": 50000,
+  "workDuration": "3 mois"
+}
+
+
+### Test de création de poste 2 avec authentification (succès attendu)
+
+POST http://localhost:5000/api/jobs/add
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZWNydXRldXJJZCI6IjY3ZjMxMWQ5OTI1MWE2NWJlYWE5ZjQ4NyIsImlhdCI6MTc0Mzk4MzExNCwiZXhwIjoxNzQzOTg2NzE0fQ.Yu6m_3dBNtQKnoxiHLHTZ0ql4jvmHVKEitYCi7C94DI
+
+{
+  "title": "Développeur Frontend",
+  "profile": "Expert en React et TypeScript",
+  "description": "Création d'interfaces utilisateur modernes et réactives pour nos applications web",
+  "location": "Lyon",
+  "contractType": "CDD",
+  "experienceLevel": "2 ans",
+  "salary": 45000,
+  "workDuration": "6 mois"
+}
+
+### Test de création de poste 3 avec authentification (succès attendu)
+
+POST http://localhost:5000/api/jobs/add
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZWNydXRldXJJZCI6IjY3ZjMxMWQ5OTI1MWE2NWJlYWE5ZjQ4NyIsImlhdCI6MTc0Mzk4MzExNCwiZXhwIjoxNzQzOTg2NzE0fQ.Yu6m_3dBNtQKnoxiHLHTZ0ql4jvmHVKEitYCi7C94DI
+
+{
+  "title": "Data Scientist",
+  "profile": "Expertise en machine learning et analyse de données",
+  "description": "Analyse de grands ensembles de données et création de modèles prédictifs pour optimiser nos processus métier",
+  "location": "Marseille",
+  "contractType": "CDI",
+  "experienceLevel": "5 ans",
+  "salary": 65000,
+  "workDuration": "Temps plein"
+}
+
+### Test de création de poste 4 avec authentification (succès attendu)
+
+POST http://localhost:5000/api/jobs/add
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZWNydXRldXJJZCI6IjY3ZjMxMWQ5OTI1MWE2NWJlYWE5ZjQ4NyIsImlhdCI6MTc0Mzk4MzExNCwiZXhwIjoxNzQzOTg2NzE0fQ.Yu6m_3dBNtQKnoxiHLHTZ0ql4jvmHVKEitYCi7C94DI
+
+{
+  "title": "DevOps en Alternance",
+  "profile": "Étudiant en informatique avec intérêt pour l'infrastructure cloud",
+  "description": "Mise en place et maintenance de pipelines CI/CD, automatisation du déploiement et monitoring des applications",
+  "location": "Lille",
+  "contractType": "Alternance",
+  "experienceLevel": "Étudiant",
+  "salary": 1600,
+  "workDuration": "12 mois"
+}
+
+### Test d'affichage des postes ouverts
+GET http://localhost:5000/api/jobs/open
+Content-Type: application/json
+
+### Test de modification du statut d’un poste (authentification requise)
+PATCH http://localhost:5000/api/jobs/67f312419251a65beaa9f491
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZWNydXRldXJJZCI6IjY3ZjMxMWQ5OTI1MWE2NWJlYWE5ZjQ4NyIsImlhdCI6MTc0Mzk4MzExNCwiZXhwIjoxNzQzOTg2NzE0fQ.Yu6m_3dBNtQKnoxiHLHTZ0ql4jvmHVKEitYCi7C94DI
+
+{
+  "status": "Fermé"
+}
+
+### Test d'affichage des postes fermés
+GET http://localhost:5000/api/jobs/closed
+Content-Type: application/json
+
+
+
+### Test de l'endpoint de recommedation
+GET http://localhost:5000/api/jobs/recommended
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2YzMTEzMzkyNTFhNjViZWFhOWY0NzciLCJpYXQiOjE3NDM5ODMyODAsImV4cCI6MTc0Mzk4Njg4MH0.9ZntOq6zL-9RVk4fGkz8K4j4aHzqa0g7-INZxSv1QaE
+
+
+### Envoyer une candidature avec un lien de portfolio
+POST http://localhost:5000/api/candidatures/postuler
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2YzMTEzMzkyNTFhNjViZWFhOWY0NzciLCJpYXQiOjE3NDM5ODMyODAsImV4cCI6MTc0Mzk4Njg4MH0.9ZntOq6zL-9RVk4fGkz8K4j4aHzqa0g7-INZxSv1QaE
+Content-Type: application/json
+
+{
+  "jobId": "67f312319251a65beaa9f48f",
+  "portfolio": "https://monportfolio.com"
+}
+
+
+### Récupérer mes candidatures
+GET http://localhost:5000/api/candidatures/mes-candidatures
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2YyOWM5ZjRkYjlmMzhkMWZlN2I0M2YiLCJpYXQiOjE3NDM5NTM1NTMsImV4cCI6MTc0Mzk1NzE1M30.3uZ76wXVgogp92UiRDgmEGRtt9W0JgRBon7_dO_BjLc
+
+
+### Tester la récupération des candidatures pour un poste
+GET http://localhost:5000/api/candidatures/poste/67eeb698540a8d4ce5ad9d97
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZWNydXRldXJJZCI6IjY3ZWRkYTNkZmRkYjY5Mzg2Zjc4OTQ0MSIsImlhdCI6MTc0Mzc5MjM1NywiZXhwIjoxNzQzNzk1OTU3fQ.eErLe-S4Gq52hzqTrHCcXS1rj3ph-mm2BM3vVJF13KQ
+ 
+
+### Tester la validation d'un candidat
+PUT http://localhost:5000/api/candidatures/67f312f99251a65beaa9f49d/valider
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZWNydXRldXJJZCI6IjY3ZjMxMWQ5OTI1MWE2NWJlYWE5ZjQ4NyIsImlhdCI6MTc0Mzk4MzQwNCwiZXhwIjoxNzQzOTg3MDA0fQ.WriVJt0qtu0hYDjn4_bskcPC13u6_s_OPHBxM7E6mhM
+Content-Type: application/json
+
+{
+  "status": "Accepté",
+  "commentaire": "Votre profil correspond parfaitement au poste."
+}
+
+
