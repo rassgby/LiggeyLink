@@ -12,11 +12,10 @@ Content-Type: application/json
 }
 
 ### Étape 2 - Compléter les information supplémentaire de Rassoul
-POST http://localhost:5000/api/users/candidats/register-step2
+POST http://localhost:5000/api/users/candidats/register-step2/67ffd7dd2b7eae2b0c9fc6be
 Content-Type: application/json
 
 {
-  "userId": "67f2f19930cd34b78e0d8b9d",
   "domain": "Informatique",
   "level": "Master",
   "profile": "Développeur Frontend",
@@ -45,11 +44,10 @@ Content-Type: application/json
 }
 
 ### Étape 2 - Compléter les information supplémentaire de Ousmane
-POST http://localhost:5000/api/users/candidats/register-step2
+POST http://localhost:5000/api/users/candidats/register-step2/67ffd8072b7eae2b0c9fc6c4
 Content-Type: application/json
 
 {
-  "userId": "67f311879251a65beaa9f47d",
   "domain": "Informatique",
   "level": "Master",
   "profile": "Développeur Frontend",

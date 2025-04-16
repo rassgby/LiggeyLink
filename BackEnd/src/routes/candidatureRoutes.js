@@ -5,7 +5,7 @@ const { uploadCandidatureFiles } = require("../uploads/multerConfig");
 const router = express.Router();
 
 router.post(
-  "/postuler", 
+  "/postuler/:jobId", 
   authMiddleware, 
   uploadCandidatureFiles, 
   candidatureController.postuler

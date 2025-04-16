@@ -28,7 +28,8 @@ exports.registerStep1 = async (req, res) => {
 
 // Étape 2: Compléter l'inscription
 exports.registerStep2 = async (req, res) => {
-  const { userId, domain, level, profile, experience } = req.body;
+  const { userId } = req.params; // Récupérer userId à partir des paramètres de chemin
+  const { domain, level, profile, experience } = req.body;
 
   try {
     const user = await User.findById(userId);
@@ -45,6 +46,7 @@ exports.registerStep2 = async (req, res) => {
     res.status(500).json({ message: "Erreur serveur" });
   }
 };
+
 
 // Connexion utilisateur
 exports.login = async (req, res) => {
