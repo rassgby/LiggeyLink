@@ -415,12 +415,12 @@ export default function JobListings() {
                       <div className="flex items-start">
                         <div className="mr-4">
                           <div className="relative w-12 h-12">
-                            <Image
+                            {/* <Image
                               src={job.logo}
                               alt={job.company}
                               fill
                               className="rounded-md object-cover"
-                            />
+                            /> */}
                           </div>
                         </div>
                         <div>

@@ -14,45 +14,53 @@ const candidatureController = {
           message: "Accès refusé. Veuillez vous connecter."
         });
       }
-
+  
       // Récupérer le jobId à partir des paramètres de chemin
-      const { jobId } = req.params; // Modification ici
-
+      const { jobId } = req.params;
+  
       if (!jobId) {
         return res.status(400).json({
           status: "fail",
           message: "Veuillez spécifier l'identifiant du poste"
         });
       }
-
+  
       // Traiter les fichiers uploadés
       let cvPath = "";
       let portfolioPath = "";
-
+  
+      // Déboguer pour voir ce qui arrive
+      console.log("req.files:", req.files);
+  
       if (req.files) {
         // Récupérer le chemin relatif du CV s'il a été uploadé
         if (req.files.cv && req.files.cv.length > 0) {
           // Enregistrer un chemin relatif dans la base de données
           cvPath = path.relative(path.join(__dirname, '..'), req.files.cv[0].path);
+          console.log("CV Path:", cvPath);
         }
-
+  
         // Récupérer le chemin relatif du portfolio s'il a été uploadé
         if (req.files.portfolio && req.files.portfolio.length > 0) {
           portfolioPath = path.relative(path.join(__dirname, '..'), req.files.portfolio[0].path);
+          console.log("Portfolio Path:", portfolioPath);
         }
       }
-
+  
       // Créer l'objet de candidature
       const candidatureData = {
         job: jobId,
         candidat: req.user.userId,
-        cv: cvPath,
+        cv: cvPath || "", // Assurez-vous que cvPath n'est pas undefined
         portfolio: portfolioPath || "",
       };
-
+  
+      console.log("candidatureData:", candidatureData);
+  
       const result = await CandidatureService.createCandidature(candidatureData);
       res.status(result.status === "success" ? 201 : 400).json(result);
     } catch (error) {
+      console.error("Erreur lors de la candidature:", error);
       res.status(500).json({ status: "fail", message: error.message });
     }
   },
@@ -150,11 +158,11 @@ const candidatureController = {
       const candidature = await Candidature.findById(candidatureId)
         .populate({
           path: "candidat",
-          select: "email firstName lastName" // Noms de champs exacts du modèle User
+          select: "email firstName lastName" 
         })
         .populate({
           path: "job",
-          select: "title profile description" // Noms de champs exacts du modèle Job
+          select: "title profile description" 
         });
 
       if (!candidature) {

@@ -157,13 +157,13 @@ export default function Home() {
                 <div className="flex flex-col md:flex-row justify-between">
                   <div className="flex items-start">
                     <div className="mr-4">
-                      <Image
+                      {/* <Image
                         src={job.logo}
                         alt={`Logo ${job.company}`}
                         width={50}
                         height={50}
                         className="rounded-md"
-                      />
+                      /> */}
                     </div>
                     <div>
                       <Link href={`/emplois/${job.id}`} className={`text-xl font-semibold mb-1 block ${darkMode ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-800'}`}>
@@ -265,13 +265,13 @@ export default function Home() {
                 </p>
                 <div className="flex items-center">
                   <div className="mr-3">
-                    <Image
+                    {/* <Image
                       src="/api/placeholder/40/40"
                       alt={testimonial.name}
                       width={40}
                       height={40}
                       className="rounded-full object-cover"
-                    />
+                    /> */}
                   </div>
                   <div>
                     <p className="font-medium">{testimonial.name}</p>
@@ -287,62 +287,11 @@ export default function Home() {
       <footer className={`py-12 px-6 ${darkMode ? 'bg-gray-800' : 'bg-gray-100'}`}>
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4 text-blue-600">LiggeyLink</h3>
-              <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} mb-4`}>
-                La plateforme qui connecte talents et entreprises pour créer les meilleures opportunités professionnelles.
-              </p>
-            </div>
-
-            <div>
-              <h4 className="font-bold mb-4">Pour les candidats</h4>
-              <ul className={`space-y-2 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                <li><Link href="/emplois" className="hover:underline">Rechercher des emplois</Link></li>
-                <li><Link href="/candidats/cv" className="hover:underline">Créer un CV</Link></li>
-                <li><Link href="/candidats/alertes" className="hover:underline">Alertes emploi</Link></li>
-                <li><Link href="/conseils" className="hover:underline">Conseils carrière</Link></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-bold mb-4">Pour les entreprises</h4>
-              <ul className={`space-y-2 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                <li><Link href="/entreprises/publier" className="hover:underline">Publier une offre</Link></li>
-                <li><Link href="/entreprises/recherche" className="hover:underline">Rechercher des profils</Link></li>
-                <li><Link href="/entreprises/solutions" className="hover:underline">Solutions de recrutement</Link></li>
-                <li><Link href="/entreprises/tarifs" className="hover:underline">Tarifs</Link></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-bold mb-4">À propos</h4>
-              <ul className={`space-y-2 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                <li><Link href="/a-propos" className="hover:underline">Qui sommes-nous</Link></li>
-                <li><Link href="/contact" className="hover:underline">Contact</Link></li>
-                <li><Link href="/mentions-legales" className="hover:underline">Mentions légales</Link></li>
-                <li><Link href="/confidentialite" className="hover:underline">Confidentialité</Link></li>
-              </ul>
-            </div>
           </div>
-
           <div className={`border-t ${darkMode ? 'border-gray-600' : 'border-gray-300'} mt-8 pt-8 flex flex-col md:flex-row justify-between items-center`}>
             <p className={`${darkMode ? 'text-gray-400' : 'text-gray-600'} mb-4 md:mb-0`}>
               © {new Date().getFullYear()} LiggeyLink. Tous droits réservés.
             </p>
-            <div className="flex space-x-4">
-              <Link href="https://twitter.com" className={`${darkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`} aria-label="Twitter">
-                Twitter
-              </Link>
-              <Link href="https://linkedin.com" className={`${darkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`} aria-label="LinkedIn">
-                LinkedIn
-              </Link>
-              <Link href="https://facebook.com" className={`${darkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`} aria-label="Facebook">
-                Facebook
-              </Link>
-              <Link href="https://instagram.com" className={`${darkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`} aria-label="Instagram">
-                Instagram
-              </Link>
-            </div>
           </div>
         </div>
       </footer>

@@ -1,4 +1,3 @@
-
 ### Étape 1 - Inscription de l'utilisateur Rassoul
 POST http://localhost:5000/api/users/candidats/register-step1
 Content-Type: application/json
@@ -161,7 +160,7 @@ Content-Type: application/json
 ### Etape 2
 POST http://localhost:5000/api/jobs/add
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZWNydXRldXJJZCI6IjY3ZjMxMWQ5OTI1MWE2NWJlYWE5ZjQ4NyIsImlhdCI6MTc0Mzk4MzExNCwiZXhwIjoxNzQzOTg2NzE0fQ.Yu6m_3dBNtQKnoxiHLHTZ0ql4jvmHVKEitYCi7C94DI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZWNydXRldXJJZCI6IjY4MTBhMWI1NzQ0NWQ1MjFkYTI5NTU5MSIsImlhdCI6MTc0NTkyMDQ1NSwiZXhwIjoxNzQ1OTI0MDU1fQ.7jYxYHBDsoYBLHiVKzDOChjS0YIzUYHgI8GCBDx9tUo
 
 
 {
@@ -248,23 +247,23 @@ Content-Type: application/json
 
 ### Test de l'endpoint de recommedation
 GET http://localhost:5000/api/jobs/recommended
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2YzMTEzMzkyNTFhNjViZWFhOWY0NzciLCJpYXQiOjE3NDM5ODMyODAsImV4cCI6MTc0Mzk4Njg4MH0.9ZntOq6zL-9RVk4fGkz8K4j4aHzqa0g7-INZxSv1QaE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2ZmZDdkZDJiN2VhZTJiMGM5ZmM2YmUiLCJpYXQiOjE3NDU5MjAzMjQsImV4cCI6MTc0NTkyMzkyNH0.apGnBTqw5MPONnXcYqoOsCVp3PJnkU37hP4-suD5ISo
 
 
 ### Envoyer une candidature avec un lien de portfolio
-POST http://localhost:5000/api/candidatures/postuler
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2YzMTEzMzkyNTFhNjViZWFhOWY0NzciLCJpYXQiOjE3NDM5ODMyODAsImV4cCI6MTc0Mzk4Njg4MH0.9ZntOq6zL-9RVk4fGkz8K4j4aHzqa0g7-INZxSv1QaE
+POST http://localhost:5000/api/candidatures/postuler/6810a1ef7445d521da295594
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2ZmZDdkZDJiN2VhZTJiMGM5ZmM2YmUiLCJpYXQiOjE3NDU5MjA2MjksImV4cCI6MTc0NTkyNDIyOX0.9o-QHwh14Sl2CdGFr2RTvio-82KxkKmCH4WmH4p7UZE
 Content-Type: application/json
 
 {
-  "jobId": "67f312319251a65beaa9f48f",
+
   "portfolio": "https://monportfolio.com"
 }
 
 
 ### Récupérer mes candidatures
 GET http://localhost:5000/api/candidatures/mes-candidatures
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2YyOWM5ZjRkYjlmMzhkMWZlN2I0M2YiLCJpYXQiOjE3NDM5NTM1NTMsImV4cCI6MTc0Mzk1NzE1M30.3uZ76wXVgogp92UiRDgmEGRtt9W0JgRBon7_dO_BjLc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2ZmZDdkZDJiN2VhZTJiMGM5ZmM2YmUiLCJpYXQiOjE3NDU5MjAzMjQsImV4cCI6MTc0NTkyMzkyNH0.apGnBTqw5MPONnXcYqoOsCVp3PJnkU37hP4-suD5ISo
 
 
 ### Tester la récupération des candidatures pour un poste
@@ -273,8 +272,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZWNydXRldXJJZCI6I
  
 
 ### Tester la validation d'un candidat
-PUT http://localhost:5000/api/candidatures/67f312f99251a65beaa9f49d/valider
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZWNydXRldXJJZCI6IjY3ZjMxMWQ5OTI1MWE2NWJlYWE5ZjQ4NyIsImlhdCI6MTc0Mzk4MzQwNCwiZXhwIjoxNzQzOTg3MDA0fQ.WriVJt0qtu0hYDjn4_bskcPC13u6_s_OPHBxM7E6mhM
+PUT http://localhost:5000/api/candidatures/6815ce2b2d4714724da3403e/valider
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZWNydXRldXJJZCI6IjY4MTUzNDk3MWQ3ZDQ4ZjdlMTQ1Yzk3MCIsImlhdCI6MTc0NjIzNTI1NSwiZXhwIjoxNzQ2MjM4ODU1fQ.TmiOKJEmhV83uksIb5FVgiC0N1oatCA5Xe1ziAfmbcU
 Content-Type: application/json
 
 {
